@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Collapsible({ children }) {
+function Collapsible({ children, sectionName }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -9,7 +9,7 @@ function Collapsible({ children }) {
 
   return (
     <div>
-      <button onClick={toggle}>toggle</button>
+      <button onClick={toggle}>{sectionName}</button>
       {isOpen && children}
     </div>
   );

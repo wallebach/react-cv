@@ -1,11 +1,11 @@
-import GeneralInformation from "./components/GeneralInformation";
+import Desktop from "./components/Desktop";
 import "./App.css";
 
 function App() {
   return (
     <>
       <div>
-        <GeneralInformation />
+        <Desktop />
       </div>
     </>
   );

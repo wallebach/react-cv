@@ -1,71 +1,59 @@
 import { useState } from "react";
 import Collapsible from "./Collapsible";
 
-function GeneralInformation() {
-  const [information, setInformation] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  });
-
-  const [isEdit, setIsEdit] = useState(false);
+function GeneralInfo({
+  info,
+  setInfo,
+  lastInfo,
+  setLastInfo,
+  isEdit,
+  setIsEdit,
+}) {
   const [editButtonText, setEditButtonText] = useState("Edit");
 
-  const [isSectionOpen, setIsSectionOpen] = useState(false);
-
   function handleFirstNameChange(e) {
-    setInformation({ ...information, firstName: e.target.value });
+    setInfo({ ...info, firstName: e.target.value });
   }
 
   function handleLastNameChange(e) {
-    setInformation({ ...information, lastName: e.target.value });
+    setInfo({ ...info, lastName: e.target.value });
   }
 
   function handleEmailChange(e) {
-    setInformation({ ...information, email: e.target.value });
+    setInfo({ ...info, email: e.target.value });
   }
 
   function handlePhoneChange(e) {
-    setInformation({ ...information, phone: e.target.value });
+    setInfo({ ...info, phone: e.target.value });
   }
 
   function handleEditToggle() {
+    isEdit ? setLastInfo({ ...info }) : setLastInfo({ ...lastInfo });
     setIsEdit(!isEdit);
     setEditButtonText(isEdit ? "Edit" : "Save");
-  }
-
-  function handleSectionOpen() {
-    setIsSectionOpen(!isSectionOpen);
   }
 
   if (isEdit) {
     return (
       <>
-        <Collapsible>
+        <Collapsible sectionName="General info">
           <label>
             First name:
-            <input
-              value={information.firstName}
-              onChange={handleFirstNameChange}
-            />
+            <input value={info.firstName} onChange={handleFirstNameChange} />
           </label>{" "}
           <label>
             Last name:
-            <input
-              value={information.lastName}
-              onChange={handleLastNameChange}
-            />
+            <input value={info.lastName} onChange={handleLastNameChange} />
           </label>{" "}
           <label>
             Email:
-            <input value={information.email} onChange={handleEmailChange} />
+            <input value={info.email} onChange={handleEmailChange} />
           </label>{" "}
           <label>
             Phone:
-            <input value={information.phone} onChange={handlePhoneChange} />
+            <input value={info.phone} onChange={handlePhoneChange} />
           </label>{" "}
-          <button type="submit" onClick={handleEditToggle}>
+          <button type="submit" onClick={() => handleEditToggle(isEdit)}>
             {editButtonText}
           </button>
         </Collapsible>
@@ -75,24 +63,24 @@ function GeneralInformation() {
 
   return (
     <>
-      <Collapsible>
+      <Collapsible sectionName="General info">
         <label>
           First name:
-          <input value={information.firstName} readOnly={isEdit} />
+          <input value={info.firstName} readOnly={isEdit} />
         </label>{" "}
         <label>
           Last name:
-          <input value={information.lastName} readOnly={isEdit} />
+          <input value={info.lastName} readOnly={isEdit} />
         </label>{" "}
         <label>
           Email:
-          <input value={information.email} readOnly={isEdit} />
+          <input value={info.email} readOnly={isEdit} />
         </label>{" "}
         <label>
           Phone:
-          <input value={information.phone} readOnly={isEdit} />
+          <input value={info.phone} readOnly={isEdit} />
         </label>{" "}
-        <button type="submit" onClick={handleEditToggle}>
+        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
           {editButtonText}
         </button>
       </Collapsible>
@@ -100,4 +88,4 @@ function GeneralInformation() {
   );
 }
 
-export default GeneralInformation;
+export default GeneralInfo;
