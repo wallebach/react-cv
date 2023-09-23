@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Collapsible from "./Collapsible";
 
 function EducationInfo({
   info,
@@ -36,60 +35,53 @@ function EducationInfo({
   if (isEdit) {
     return (
       <>
-        <Collapsible sectionName="Education">
-          <label>
-            School name:
-            <input value={info.schoolName} onChange={handleSchoolNameChange} />
-          </label>{" "}
-          <label>
-            Title of study:
-            <input value={info.titleOfStudy} onChange={handleTitleOfStudy} />
-          </label>{" "}
-          <label>
-            Start date:
-            <input
-              value={info.startDateOfStudy}
-              onChange={handleStartDateOfStudy}
-            />
-          </label>{" "}
-          <label>
-            End date:
-            <input
-              value={info.endDateOfStudy}
-              onChange={handleEndDateOfStudy}
-            />
-          </label>{" "}
-          <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-            {editButtonText}
-          </button>
-        </Collapsible>
+        <label>
+          School name:
+          <input value={info.schoolName} onChange={handleSchoolNameChange} />
+        </label>{" "}
+        <label>
+          Title of study:
+          <input value={info.titleOfStudy} onChange={handleTitleOfStudy} />
+        </label>{" "}
+        <label>
+          Start date:
+          <input
+            value={info.startDateOfStudy}
+            onChange={handleStartDateOfStudy}
+          />
+        </label>{" "}
+        <label>
+          End date:
+          <input value={info.endDateOfStudy} onChange={handleEndDateOfStudy} />
+        </label>{" "}
+        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+          {editButtonText}
+        </button>
       </>
     );
   }
 
   return (
     <>
-      <Collapsible sectionName="Education">
-        <label>
-          School name:
-          <input value={info.schoolName} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          Title of study:
-          <input value={info.titleOfStudy} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          Start date:
-          <input value={info.startDateOfStudy} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          End date:
-          <input value={info.endDateOfStudy} readOnly={isEdit} />
-        </label>{" "}
-        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-          {editButtonText}
-        </button>
-      </Collapsible>
+      <label>
+        School name:
+        <input value={info.schoolName} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        Title of study:
+        <input value={info.titleOfStudy} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        Start date:
+        <input value={info.startDateOfStudy} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        End date:
+        <input value={info.endDateOfStudy} readOnly={isEdit} />
+      </label>{" "}
+      <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+        {editButtonText}
+      </button>
     </>
   );
 }

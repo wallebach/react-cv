@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Collapsible from "./Collapsible";
 
 function GeneralInfo({
   info,
@@ -36,54 +35,50 @@ function GeneralInfo({
   if (isEdit) {
     return (
       <>
-        <Collapsible sectionName="General info">
-          <label>
-            First name:
-            <input value={info.firstName} onChange={handleFirstNameChange} />
-          </label>{" "}
-          <label>
-            Last name:
-            <input value={info.lastName} onChange={handleLastNameChange} />
-          </label>{" "}
-          <label>
-            Email:
-            <input value={info.email} onChange={handleEmailChange} />
-          </label>{" "}
-          <label>
-            Phone:
-            <input value={info.phone} onChange={handlePhoneChange} />
-          </label>{" "}
-          <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-            {editButtonText}
-          </button>
-        </Collapsible>
+        <label>
+          First name:
+          <input value={info.firstName} onChange={handleFirstNameChange} />
+        </label>{" "}
+        <label>
+          Last name:
+          <input value={info.lastName} onChange={handleLastNameChange} />
+        </label>{" "}
+        <label>
+          Email:
+          <input value={info.email} onChange={handleEmailChange} />
+        </label>{" "}
+        <label>
+          Phone:
+          <input value={info.phone} onChange={handlePhoneChange} />
+        </label>{" "}
+        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+          {editButtonText}
+        </button>
       </>
     );
   }
 
   return (
     <>
-      <Collapsible sectionName="General info">
-        <label>
-          First name:
-          <input value={info.firstName} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          Last name:
-          <input value={info.lastName} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          Email:
-          <input value={info.email} readOnly={isEdit} />
-        </label>{" "}
-        <label>
-          Phone:
-          <input value={info.phone} readOnly={isEdit} />
-        </label>{" "}
-        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-          {editButtonText}
-        </button>
-      </Collapsible>
+      <label>
+        First name:
+        <input value={info.firstName} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        Last name:
+        <input value={info.lastName} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        Email:
+        <input value={info.email} readOnly={isEdit} />
+      </label>{" "}
+      <label>
+        Phone:
+        <input value={info.phone} readOnly={isEdit} />
+      </label>{" "}
+      <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+        {editButtonText}
+      </button>
     </>
   );
 }

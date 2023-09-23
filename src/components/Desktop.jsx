@@ -49,35 +49,57 @@ function Desktop() {
 
   return (
     <>
-      <GeneralInfo
-        info={generalData}
-        setInfo={setGeneralData}
-        lastInfo={lastSavedGeneralData}
-        setLastInfo={setLastSavedGeneralData}
-        isEdit={isEditGeneralInfo}
-        setIsEdit={setIsEditGeneralInfo}
-      ></GeneralInfo>
-      <EmploymentInfo
-        info={employmentData}
-        setInfo={setEmploymentData}
-        lastInfo={lastSavedEmploymentData}
-        setLastInfo={setLastSavedEmploymentData}
-        isEdit={isEditEmploymentData}
-        setIsEdit={setIsEditEmploymentData}
-      ></EmploymentInfo>
-      <EducationInfo
-        info={educationData}
-        setInfo={setEducationData}
-        lastInfo={lastSavedEducationData}
-        setLastInfo={setLastSavedEducationData}
-        isEdit={isEditEducationData}
-        setIsEdit={setIsEditEducationData}
-      ></EducationInfo>
-      <CompletedCV
-        generalInfo={lastSavedGeneralData}
-        employmentInfo={lastSavedEmploymentData}
-        educationInfo={lastSavedEducationData}
-      ></CompletedCV>
+      <div class="container">
+        <header>
+          <h1>Curriculum Vitae</h1>
+        </header>
+        <div class="panels">
+          <section>
+            <CompletedCV
+              generalInfo={lastSavedGeneralData}
+              employmentInfo={lastSavedEmploymentData}
+              educationInfo={lastSavedEducationData}
+            ></CompletedCV>
+          </section>
+        </div>
+        <aside>
+          <div class="edit-container">
+            <section class="edit-section">
+              <GeneralInfo
+                info={generalData}
+                setInfo={setGeneralData}
+                lastInfo={lastSavedGeneralData}
+                setLastInfo={setLastSavedGeneralData}
+                isEdit={isEditGeneralInfo}
+                setIsEdit={setIsEditGeneralInfo}
+              ></GeneralInfo>
+            </section>
+            <section class="edit-section">
+              <EmploymentInfo
+                info={employmentData}
+                setInfo={setEmploymentData}
+                lastInfo={lastSavedEmploymentData}
+                setLastInfo={setLastSavedEmploymentData}
+                isEdit={isEditEmploymentData}
+                setIsEdit={setIsEditEmploymentData}
+              ></EmploymentInfo>
+            </section>
+            <section class="edit-section">
+              <EducationInfo
+                info={educationData}
+                setInfo={setEducationData}
+                lastInfo={lastSavedEducationData}
+                setLastInfo={setLastSavedEducationData}
+                isEdit={isEditEducationData}
+                setIsEdit={setIsEditEducationData}
+              ></EducationInfo>
+            </section>
+          </div>
+        </aside>
+        <footer>
+          <a href="https://github.com/wallebach/react-cv">source code</a>
+        </footer>
+      </div>
     </>
   );
 }
