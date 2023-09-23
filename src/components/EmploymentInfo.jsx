@@ -39,70 +39,122 @@ function EmploymentInfo({
   if (isEdit) {
     return (
       <>
-        <label>
-          Company name:
-          <input value={info.companyName} onChange={handleCompanyNameChange} />
-        </label>{" "}
-        <label>
-          Position:
-          <input
-            value={info.titleOfPosition}
-            onChange={handleTitleOfPosition}
-          />
-        </label>{" "}
-        <label>
-          Responsibilities:
-          <input
-            value={info.responsibilities}
-            onChange={handleResponsibilities}
-          />
-        </label>{" "}
-        <label>
-          Start date:
-          <input
-            value={info.startDateOfEmployment}
-            onChange={handleStartDateOfEmployment}
-          />
-        </label>{" "}
-        <label>
-          End date:
-          <input
-            value={info.endDateOfEmployment}
-            onChange={handleEndDateOfEmployment}
-          />
-        </label>{" "}
-        <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-          {editButtonText}
-        </button>
+        <h1 class="edit-section-header">Work experience</h1>
+        <form>
+          <ul class="info-list">
+            <li>
+              <label>
+                Company name:
+                <input
+                  type="text"
+                  value={info.companyName}
+                  onChange={handleCompanyNameChange}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                Position:
+                <input
+                  type="text"
+                  value={info.titleOfPosition}
+                  onChange={handleTitleOfPosition}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                Responsibilities:
+                <input
+                  type="text"
+                  value={info.responsibilities}
+                  onChange={handleResponsibilities}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                Start date:
+                <input
+                  type="text"
+                  value={info.startDateOfEmployment}
+                  onChange={handleStartDateOfEmployment}
+                />
+              </label>
+            </li>
+            <li>
+              <label>
+                End date:
+                <input
+                  type="text"
+                  value={info.endDateOfEmployment}
+                  onChange={handleEndDateOfEmployment}
+                />
+              </label>
+            </li>
+            <li>
+              <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+                {editButtonText}
+              </button>
+            </li>
+          </ul>
+        </form>
       </>
     );
   }
 
   return (
     <>
-      <label>
-        Company name:
-        <input value={info.companyName} readOnly={isEdit} />
-      </label>{" "}
-      <label>
-        Position:
-        <input value={info.titleOfPosition} readOnly={isEdit} />
-      </label>{" "}
-      <label>
-        Responsibilities:
-        <input value={info.responsibilities} readOnly={isEdit} />
-      </label>{" "}
-      <label>
-        Start date:
-        <input value={info.startDateOfEmployment} readOnly={isEdit} />
-      </label>{" "}
-      <label>
-        End date:
-        <input value={info.endDateOfEmployment} readOnly={isEdit} />
-      </label>{" "}
-      <button type="submit" onClick={() => handleEditToggle(isEdit)}>
-        {editButtonText}
-      </button>
+      <h1 class="edit-section-header">Work experience</h1>
+      <ul class="info-list">
+        <li>
+          <label>
+            Company name:
+            <input type="text" value={info.companyName} readOnly={isEdit} />
+          </label>
+        </li>
+        <li>
+          <label>
+            Position:
+            <input type="text" value={info.titleOfPosition} readOnly={isEdit} />
+          </label>
+        </li>
+        <li>
+          <label>
+            Responsibilities:
+            <input
+              type="text"
+              value={info.responsibilities}
+              readOnly={isEdit}
+            />
+          </label>
+        </li>
+        <li>
+          <label>
+            Start date:
+            <input
+              type="text"
+              value={info.startDateOfEmployment}
+              readOnly={isEdit}
+            />
+          </label>
+        </li>
+        <li>
+          <label>
+            End date:
+            <input
+              type="text"
+              value={info.endDateOfEmployment}
+              readOnly={isEdit}
+            />
+          </label>
+        </li>
+        <li>
+          <button type="submit" onClick={() => handleEditToggle(isEdit)}>
+            {editButtonText}
+          </button>
+        </li>
+      </ul>
     </>
   );
 }

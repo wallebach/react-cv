@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EducationInfo({
+function GeneralInfo({
   info,
   setInfo,
   lastInfo,
@@ -10,20 +10,20 @@ function EducationInfo({
 }) {
   const [editButtonText, setEditButtonText] = useState("Edit");
 
-  function handleSchoolNameChange(e) {
-    setInfo({ ...info, schoolName: e.target.value });
+  function handleFirstNameChange(e) {
+    setInfo({ ...info, firstName: e.target.value });
   }
 
-  function handleTitleOfStudy(e) {
-    setInfo({ ...info, titleOfStudy: e.target.value });
+  function handleLastNameChange(e) {
+    setInfo({ ...info, lastName: e.target.value });
   }
 
-  function handleStartDateOfStudy(e) {
-    setInfo({ ...info, startDateOfStudy: e.target.value });
+  function handleEmailChange(e) {
+    setInfo({ ...info, email: e.target.value });
   }
 
-  function handleEndDateOfStudy(e) {
-    setInfo({ ...info, endDateOfStudy: e.target.value });
+  function handlePhoneChange(e) {
+    setInfo({ ...info, phone: e.target.value });
   }
 
   function handleEditToggle() {
@@ -35,46 +35,46 @@ function EducationInfo({
   if (isEdit) {
     return (
       <>
-        <h1 class="edit-section-header">Education</h1>
+        <h1 class="edit-section-header">General information</h1>
         <form>
           <ul class="info-list">
             <li>
               <label>
-                School name:
+                First name:
                 <input
                   type="text"
-                  value={info.schoolName}
-                  onChange={handleSchoolNameChange}
+                  value={info.firstName}
+                  onChange={handleFirstNameChange}
                 />
               </label>
             </li>
             <li>
               <label>
-                Title of study:
+                Last name:
                 <input
                   type="text"
-                  value={info.titleOfStudy}
-                  onChange={handleTitleOfStudy}
+                  value={info.lastName}
+                  onChange={handleLastNameChange}
                 />
               </label>
             </li>
             <li>
               <label>
-                Start date:
+                Email:
                 <input
                   type="text"
-                  value={info.startDateOfStudy}
-                  onChange={handleStartDateOfStudy}
+                  value={info.email}
+                  onChange={handleEmailChange}
                 />
               </label>
             </li>
             <li>
               <label>
-                End date:
+                Phone:
                 <input
                   type="text"
-                  value={info.endDateOfStudy}
-                  onChange={handleEndDateOfStudy}
+                  value={info.phone}
+                  onChange={handlePhoneChange}
                 />
               </label>
             </li>
@@ -91,34 +91,30 @@ function EducationInfo({
 
   return (
     <>
-      <h1 class="edit-section-header">Education</h1>
+      <h1 class="edit-section-header">General information</h1>
       <ul class="info-list">
         <li>
           <label>
-            School name:
-            <input type="text" value={info.schoolName} readOnly={isEdit} />
+            First name:
+            <input type="text" value={info.firstName} readOnly={isEdit} />
           </label>
         </li>
         <li>
           <label>
-            Title of study:
-            <input type="text" value={info.titleOfStudy} readOnly={isEdit} />
+            Last name:
+            <input type="text" value={info.lastName} readOnly={isEdit} />
           </label>
         </li>
         <li>
           <label>
-            Start date:
-            <input
-              type="text"
-              value={info.startDateOfStudy}
-              readOnly={isEdit}
-            />
+            Email:
+            <input type="text" value={info.email} readOnly={isEdit} />
           </label>
         </li>
         <li>
           <label>
-            End date:
-            <input type="text" value={info.endDateOfStudy} readOnly={isEdit} />
+            Phone:
+            <input type="text" value={info.phone} readOnly={isEdit} />
           </label>
         </li>
         <li>
@@ -131,4 +127,4 @@ function EducationInfo({
   );
 }
 
-export default EducationInfo;
+export default GeneralInfo;

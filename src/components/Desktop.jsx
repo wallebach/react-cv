@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GeneralInfo from "./GeneralInformation";
+import GeneralInfo from "./GeneralInfo";
 import CompletedCV from "./CompletedCV";
 import EducationInfo from "./EducationInfo";
 import EmploymentInfo from "./EmploymentInfo";
@@ -7,10 +7,10 @@ import EmploymentInfo from "./EmploymentInfo";
 function Desktop() {
   // States for general info
   const [generalData, setGeneralData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+    firstName: "John",
+    lastName: "Smith",
+    email: "john@example.com",
+    phone: "+1 222 333 444",
   });
 
   const [lastSavedGeneralData, setLastSavedGeneralData] = useState({
@@ -20,10 +20,10 @@ function Desktop() {
 
   // States for education info
   const [educationData, setEducationData] = useState({
-    schoolName: "",
-    titleOfStudy: "",
-    startDateOfStudy: "",
-    endDateOfStudy: "",
+    schoolName: "Awesome University",
+    titleOfStudy: "Computer Science",
+    startDateOfStudy: "2010",
+    endDateOfStudy: "2014",
   });
 
   const [lastSavedEducationData, setLastSavedEducationData] = useState({
@@ -34,11 +34,11 @@ function Desktop() {
 
   // States for work info
   const [employmentData, setEmploymentData] = useState({
-    companyName: "",
-    titleOfPosition: "",
-    responsibilities: "",
-    startDateOfEmployment: "",
-    endDateOfEmployment: "",
+    companyName: "Digital Corp Ltd.",
+    titleOfPosition: "Software Developer",
+    responsibilities: "Building cool stuff",
+    startDateOfEmployment: "2015",
+    endDateOfEmployment: "current",
   });
 
   const [lastSavedEmploymentData, setLastSavedEmploymentData] = useState({
@@ -46,6 +46,15 @@ function Desktop() {
   });
 
   const [isEditEmploymentData, setIsEditEmploymentData] = useState(false);
+
+  function loadSample(e) {
+    setGeneralData({
+      firstName: "James",
+      lastName: "Jones",
+      email: "james@example.com",
+      phone: "+1 222 333 444",
+    });
+  }
 
   return (
     <>
@@ -96,9 +105,7 @@ function Desktop() {
             </section>
           </div>
         </aside>
-        <footer>
-          <a href="https://github.com/wallebach/react-cv">source code</a>
-        </footer>
+        <footer></footer>
       </div>
     </>
   );
